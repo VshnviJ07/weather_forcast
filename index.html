@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Script.js" defer></script>
+</head>
+<body>
+    <div class="weather-box">
+        <div class="datetime" id="datetime"></div>
+        <div class="search">
+            <input type="text" class="search-bar" placeholder="Search City">
+            <button>🔍</button>
+        </div>
+        <div class="weather-info">
+            <h2 class="city">Weather in Delhi</h2>
+            <div class="temp">52°C</div>
+            <div class="flex">
+                <img src="https://openweathermap.org/img/wn/03n.png" alt="" class="icon">
+                <div class="description">Cloudy</div>
+            </div>
+            <div class="humidity">Humidity: 60%</div>
+            <div class="wind">Wind Speed: 6.2 km/h</div>
+        </div>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            let now = new Date();
+            let d = now.getDate();
+            let mon = now.getMonth() + 1;
+            let yer = now.getFullYear();
+            let hr = now.getHours();
+            let min = now.getMinutes();
+            min = min < 10 ? '0'+min : min;
+            document.getElementById("datetime").innerText = `Date: ${d}/${mon}/${yer}  Time: ${hr}:${min}`;
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+    </script>
+</body>
+</html>
